@@ -7,7 +7,8 @@ const sendTokenResponse = (user, res) => {
   const options = {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'Lax'
+    sameSite: 'Lax',
+    expires: new Date('9999-12-31')
   };
 
   res.status(200).cookie('token', token, options).json({
