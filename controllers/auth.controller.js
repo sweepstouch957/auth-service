@@ -3,11 +3,11 @@ const jwt = require('jsonwebtoken');
 
 const sendTokenResponse = (user, res) => {
   const token = user.getSignedJwtToken();
+
   const options = {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'Lax',
-    maxAge: 30 * 24 * 60 * 60 * 1000,
+    sameSite: 'Lax'
   };
 
   res.status(200).cookie('token', token, options).json({
@@ -19,7 +19,8 @@ const sendTokenResponse = (user, res) => {
       lastName: user.lastName,
       email: user.email,
       phoneNumber: user.phoneNumber,
-      role: user.role
+      role: user.role,
+      address: user.address,
     }
   });
 };
