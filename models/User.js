@@ -12,7 +12,7 @@ const UserSchema = new mongoose.Schema({
     match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Email inválido']
   },
   password: { type: String, required: true, minlength: 6, select: false },
-  role: { type: String, enum: ['admin', 'design', 'cashier', 'merchant'], default: 'admin' },
+  role: { type: String, enum: ['admin', 'design', 'cashier', 'merchant', 'promotor'], default: 'admin' },
   store: { type: mongoose.Schema.Types.ObjectId, ref: 'Store' },
   createdAt: { type: Date, default: Date.now },
   lastLogin: Date,
