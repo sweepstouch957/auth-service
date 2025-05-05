@@ -16,7 +16,8 @@ const UserSchema = new mongoose.Schema({
   store: { type: mongoose.Schema.Types.ObjectId, ref: 'Store' },
   createdAt: { type: Date, default: Date.now },
   lastLogin: Date,
-  active: { type: Boolean, default: true }
+  active: { type: Boolean, default: true },
+  address:{type: String,  trim: true},
 }, { timestamps: true });
 
 UserSchema.pre('save', async function(next) {
